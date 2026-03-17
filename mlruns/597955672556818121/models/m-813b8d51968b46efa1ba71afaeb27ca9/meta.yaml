@@ -1,0 +1,10 @@
+artifact_location: file:///C:/Users/Ritesh gawade/Desktop/MSC AI/proj/Solar_Power_Generation_Forecasting/mlruns/597955672556818121/models/m-813b8d51968b46efa1ba71afaeb27ca9/artifacts
+creation_timestamp: 1773722624331
+experiment_id: '597955672556818121'
+last_updated_timestamp: 1773722626680
+model_id: m-813b8d51968b46efa1ba71afaeb27ca9
+model_type: null
+name: model
+source_run_id: 44917007c33e4a22a1382dc25665ec77
+status: 2
+status_message: null

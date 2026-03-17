@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/Ritesh gawade/Desktop/MSC AI/proj/Solar_Power_Generation_Forecasting/mlruns/597955672556818121/44917007c33e4a22a1382dc25665ec77/artifacts
+end_time: 1773722626683
+entry_point_name: ''
+experiment_id: '597955672556818121'
+lifecycle_stage: active
+run_id: 44917007c33e4a22a1382dc25665ec77
+run_name: RandomForest
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1773722624202
+status: 3
+tags: []
+user_id: Ritesh gawade

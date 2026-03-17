@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/Ritesh gawade/Desktop/MSC AI/proj/Solar_Power_Generation_Forecasting/mlruns/597955672556818121/c9422f7dd15d4a08aebffb427471aac0/artifacts
+end_time: 1773722623380
+entry_point_name: ''
+experiment_id: '597955672556818121'
+lifecycle_stage: active
+run_id: c9422f7dd15d4a08aebffb427471aac0
+run_name: LinearRegression
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1773722621149
+status: 3
+tags: []
+user_id: Ritesh gawade
