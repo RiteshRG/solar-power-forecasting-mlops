@@ -1,7 +1,7 @@
 import mlflow
 from mlflow.tracking import MlflowClient
 
-mlflow.set_tracking_uri("file:///./mlruns")
+mlflow.set_tracking_uri("file:///C:/Users/Ritesh gawade/Desktop/MSC AI/proj/Solar_Power_Generation_Forecasting/mlruns")
 
 client = MlflowClient()
 
@@ -44,4 +44,4 @@ client.transition_model_version_stage(
     stage="Production"
 )
 
-print("Model registered and moved to Production")
+print("********Model registered and moved to Production********")

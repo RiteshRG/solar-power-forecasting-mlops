@@ -1,12 +1,12 @@
 import pandas as pd, numpy as np
 import matplotlib.pyplot as plt
 
-df_p1_G = pd.read_csv('../data/raw/Plant_1_Generation_Data.csv')
+df_p1_G = pd.read_csv('data/raw/Plant_1_Generation_Data.csv')
 
 first_22 = set(df_p1_G['SOURCE_KEY'].head(22))
 all_unique = set(df_p1_G['SOURCE_KEY'].unique())
 
-df_p1_w = pd.read_csv('../data/raw/Plant_1_Weather_Sensor_Data.csv')
+df_p1_w = pd.read_csv('data/raw/Plant_1_Weather_Sensor_Data.csv')
 
 df_p1_G['DATE_TIME'] = pd.to_datetime(
     df_p1_G['DATE_TIME'],
@@ -44,8 +44,8 @@ df_hourly = df_hourly[df_hourly['IRRADIATION'] > 0]
 
 df = df_hourly.drop(columns=['DATE_TIME'])
 
-df.to_csv('../data/processed/train.csv', index=False)
+df.to_csv('data/processed/train.csv', index=False)
 
 # ALSO push to feature store
 
-print("Preprocessing completed. Processed data saved to '../data/processed/train.csv'.")
+print("Preprocessing completed. Processed data saved to 'data/processed/train.csv'.")

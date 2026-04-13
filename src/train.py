@@ -14,13 +14,13 @@ from xgboost import XGBRegressor
 
 from sklearn.metrics import r2_score, mean_squared_error, mean_absolute_error
 
-mlflow.set_tracking_uri("file:///./mlruns")
+mlflow.set_tracking_uri("file:///C:/Users/Ritesh gawade/Desktop/MSC AI/proj/Solar_Power_Generation_Forecasting/mlruns")
 mlflow.set_experiment("SolarPowerForecasting")
 
 # 👉 Create version (timestamp based)
 version = datetime.now().strftime("%Y%m%d_%H%M%S")
 
-df = pd.read_csv("../data/processed/train.csv")
+df = pd.read_csv("data/processed/train.csv")
 
 X = df.drop("AC_POWER", axis=1)
 y = df["AC_POWER"]

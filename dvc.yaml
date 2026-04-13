@@ -1,0 +1,23 @@
+stages:
+  preprocess:
+    cmd: python src/preprocess.py
+    deps:
+      - data/raw/Plant_1_Generation_Data.csv
+      - data/raw/Plant_1_Weather_Sensor_Data.csv
+      - src/preprocess.py
+    outs:
+      - data/processed/train.csv
+    
+  train:
+    cmd: python src/train.py
+    deps:
+      - data/processed/train.csv
+      - src/train.py
+    outs:
+      - mlruns/
+
+  register:
+    cmd: python src/register.py
+    deps:
+      - mlruns/
+      - src/register.py
