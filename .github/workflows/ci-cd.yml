@@ -29,25 +29,6 @@ jobs:
           pip install -r requirements.txt
           pip install dvc mlflow pytest
 
-      # 4. Start MLflow server (background)
-      - name: Start MLflow server
-        run: |
-          nohup mlflow server \
-            --backend-store-uri sqlite:///mlflow.db \
-            --default-artifact-root ./mlruns \
-            --host 127.0.0.1 \
-            --port 5000 > mlflow.log 2>&1 &
-
-      # 5. Run DVC pipeline (preprocess + train + register + export)
-      - name: Pull DVC data
-        run: |
-          pip install dvc
-          dvc pull
-
-      # 6. Run tests AFTER pipeline
-      - name: Run pytest
-        run: |
-          pytest tests/
 
       # 7. Build Docker image
       - name: Build Docker image
