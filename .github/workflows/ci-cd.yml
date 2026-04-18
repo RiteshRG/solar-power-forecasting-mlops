@@ -27,35 +27,34 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
+          pip install dvc mlflow pytest
 
       # 4. Start MLflow server (background)
       - name: Start MLflow server
         run: |
-          pip install mlflow
           nohup mlflow server \
             --backend-store-uri sqlite:///mlflow.db \
             --default-artifact-root ./mlruns \
             --host 127.0.0.1 \
             --port 5000 > mlflow.log 2>&1 &
 
-      # 5. Run tests
+      # 5. Run DVC pipeline (preprocess + train + register + export)
+      - name: Run DVC pipeline
+        run: |
+          dvc repro -f
+
+      # 6. Run tests AFTER pipeline
       - name: Run pytest
         run: |
           pytest tests/
-
-      # 6. Run DVC pipeline
-      - name: Run DVC pipeline
-        run: |
-          pip install dvc
-          dvc repro -f
 
       # 7. Build Docker image
       - name: Build Docker image
         run: |
           docker build -t solar-app ./app
 
-      # 8. Run Docker container (with secret)
-      - name: Run Docker container (test)
+      # 8. Run Docker container (test stage)
+      - name: Run Docker container
         run: |
           docker run -d -p 8000:8000 \
             -e WEATHER_API_KEY=${{ secrets.WEATHER_API_KEY }} \
