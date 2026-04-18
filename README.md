@@ -1,4 +1,4 @@
-# ☀️ Solar Power Generation Forecasting — MLOps Pipeline
+# Solar Power Generation Forecasting — MLOps Pipeline
 
 ![Python](https://img.shields.io/badge/Python-3.10-blue)
 ![MLflow](https://img.shields.io/badge/MLflow-2.11-orange)
