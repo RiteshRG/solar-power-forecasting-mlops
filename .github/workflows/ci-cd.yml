@@ -64,6 +64,7 @@ jobs:
           docker push \
             ${{ secrets.ECR_REGISTRY }}/mlops/solar-power-forecasting:latest
 
+
       # 9. Deploy to EC2
       - name: Deploy to EC2
         uses: appleboy/ssh-action@v1.0.0
@@ -83,4 +84,8 @@ jobs:
               -e WEATHER_API_KEY=${{ secrets.WEATHER_API_KEY }} \
               --name solar-container \
               --restart always \
+              --log-driver=awslogs \
+              --log-opt awslogs-region=eu-north-1 \
+              --log-opt awslogs-group=/solar-app/container \
+              --log-opt awslogs-stream=solar-container \
               ${{ secrets.ECR_REGISTRY }}/mlops/solar-power-forecasting:latest
