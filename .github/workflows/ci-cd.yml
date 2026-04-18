@@ -77,6 +77,7 @@ jobs:
             --password-stdin ${{ secrets.ECR_REGISTRY }}
             docker stop solar-container || true
             docker rm solar-container   || true
+            docker system prune -a -f
             docker pull ${{ secrets.ECR_REGISTRY }}/mlops/solar-power-forecasting:latest
             docker run -d -p 8000:8000 -p 8501:8501 \
               -e WEATHER_API_KEY=${{ secrets.WEATHER_API_KEY }} \
