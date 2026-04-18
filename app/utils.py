@@ -112,8 +112,13 @@ def save_prediction(
             "created_at":  datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
         }])
 
+        # ── CloudWatch log ─────────────────────────────────────────────
+        print(f"[PREDICTION] id={next_id} | datetime={datetime_str} | "
+              f"irradiation={irradiation} | amb_temp={amb_temp} | "
+              f"ac_power={round(ac_power, 2)} kW | mode={mode}")
+
         updated = pd.concat([existing, new_row], ignore_index=True)
         updated.to_csv(csv_path, index=False)
 
     except Exception as e:
-        st.warning(f"⚠️ Could not save prediction: {e}")
+        print(f"⚠️ Could not save prediction: {e}")
