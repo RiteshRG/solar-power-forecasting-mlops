@@ -39,9 +39,10 @@ jobs:
             --port 5000 > mlflow.log 2>&1 &
 
       # 5. Run DVC pipeline (preprocess + train + register + export)
-      - name: Run DVC pipeline
+      - name: Pull DVC data
         run: |
-          dvc repro -f
+          pip install dvc
+          dvc pull
 
       # 6. Run tests AFTER pipeline
       - name: Run pytest
