@@ -1,4 +1,5 @@
 stages:
+
   preprocess:
     cmd: python src/preprocess.py
     deps:
@@ -7,17 +8,26 @@ stages:
       - src/preprocess.py
     outs:
       - data/processed/train.csv
-    
+
+
   train:
     cmd: python src/train.py
     deps:
       - data/processed/train.csv
       - src/train.py
-    outs:
-      - mlruns/
+    outs: []   # MLflow stores model, NOT DVC
+
 
   register:
     cmd: python src/register.py
     deps:
-      - mlruns/
       - src/register.py
+
+
+  export_model:
+    cmd: python src/export_model.py
+    deps:
+      - src/export_model.py
+      - src/register.py
+    outs:
+      - app/model/model.pkl

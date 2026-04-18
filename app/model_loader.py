@@ -1,33 +1,23 @@
 from __future__ import annotations
 
-import mlflow
-import mlflow.pyfunc
+import os
+import joblib
 
-from config import MLFLOW_TRACKING_URI, MODEL_URI
+from config import MODEL_PATH
 
 
 def load_model():
     """
-    Try loading the model from MLflow Model Registry first.
-    Falls back to a local model.pkl if MLflow is unavailable.
-    Returns None if both fail – the app handles None gracefully.
+    Load ONLY from exported local model.
+    No MLflow dependency at runtime (production safe).
     """
-    # ── 1. MLflow registry ─────────────────────────────────────────────────
-    try:
-        mlflow.set_tracking_uri(MLFLOW_TRACKING_URI)
-        model = mlflow.pyfunc.load_model(MODEL_URI)
-        print(f"[model_loader] Loaded from MLflow: {MODEL_URI}")
-        return model
-    except Exception as mlflow_err:
-        print(f"[model_loader] MLflow failed ({mlflow_err}), trying local fallback…")
 
-    # ── 2. Local model.pkl fallback ────────────────────────────────────────
-    try:
-        import joblib
-        model = joblib.load("model.pkl")
-        print("[model_loader] Loaded from local model.pkl")
-        return model
-    except Exception as pkl_err:
-        print(f"[model_loader] Local fallback also failed ({pkl_err})")
+    model_file = os.path.join(MODEL_PATH, "model.pkl")
 
-    return None
+    try:
+        model = joblib.load(model_file)
+        print(f"[model_loader] Loaded local model: {model_file}")
+        return model
+    except Exception as e:
+        print(f"[model_loader] Failed to load model: {e}")
+        return None

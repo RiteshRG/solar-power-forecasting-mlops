@@ -1,8 +1,7 @@
 numpy
 pandas
-sklearn
 mlflow
 xgboost
+pytest
+scikit-learn>=1.4.0
 
-seaborn
-matplotlib

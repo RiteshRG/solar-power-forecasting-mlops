@@ -1,5 +1,39 @@
 schema: '2.0'
 stages:
+  train:
+    cmd: python src/train.py
+    deps:
+    - path: data/processed/train.csv
+      hash: md5
+      md5: b87e2f627f70ff17ab940240533c2e64
+      size: 42157
+    - path: src/train.py
+      hash: md5
+      md5: 97138614ec40d446ed2fab937e2ff768
+      size: 4383
+  register:
+    cmd: python src/register.py
+    deps:
+    - path: src/register.py
+      hash: md5
+      md5: dfad6b15083f14716d9ea4b39e6e8298
+      size: 1876
+  export_model:
+    cmd: python src/export_model.py
+    deps:
+    - path: src/export_model.py
+      hash: md5
+      md5: 474f5cb26992510bd150173dd7f82914
+      size: 764
+    - path: src/register.py
+      hash: md5
+      md5: dfad6b15083f14716d9ea4b39e6e8298
+      size: 1876
+    outs:
+    - path: app/model/model.pkl
+      hash: md5
+      md5: 68208646d122f31c41fff03f340f8dbf
+      size: 142729
   preprocess:
     cmd: python src/preprocess.py
     deps:
@@ -13,39 +47,10 @@ stages:
       size: 287847
     - path: src/preprocess.py
       hash: md5
-      md5: 1d1d2d17ab99a3c09250a666ff02bb1c
-      size: 1498
+      md5: 2a865fc7a38626012bd595ec4e00483d
+      size: 3262
     outs:
     - path: data/processed/train.csv
       hash: md5
       md5: b87e2f627f70ff17ab940240533c2e64
       size: 42157
-  train:
-    cmd: python src/train.py
-    deps:
-    - path: data/processed/train.csv
-      hash: md5
-      md5: b87e2f627f70ff17ab940240533c2e64
-      size: 42157
-    - path: src/train.py
-      hash: md5
-      md5: ac63695b9a681171a04e797b9efb98a2
-      size: 2334
-    outs:
-    - path: mlruns/
-      hash: md5
-      md5: 8338b7d6daff51ac83eedbde7f7ecb29.dir
-      size: 3253241
-      nfiles: 122
-  register:
-    cmd: python src/register.py
-    deps:
-    - path: mlruns/
-      hash: md5
-      md5: ae6b9e08a10c98e2364c51893548a39c.dir
-      size: 3254056
-      nfiles: 125
-    - path: src/register.py
-      hash: md5
-      md5: 848c33fc37f3cba47ec2a05777c3a15e
-      size: 1223
