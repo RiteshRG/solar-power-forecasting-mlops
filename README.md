@@ -1,4 +1,4 @@
-# Solar Power Generation Forecasting — MLOps Pipeline
+# ☀️ Solar Power Generation Forecasting — MLOps Pipeline
 
 ![Python](https://img.shields.io/badge/Python-3.10-blue)
 ![MLflow](https://img.shields.io/badge/MLflow-2.11-orange)
@@ -112,6 +112,7 @@ Solar_Power_Generation_Forecasting/
 │   ├── utils.py               ← Feature engineering + CSV helpers
 │   ├── weather_service.py     ← OpenWeatherMap integration
 │   ├── Dockerfile             ← Container definition
+│   ├── start.sh               ← Launches FastAPI + Streamlit together
 │   └── model/
 │       └── model.pkl          ← Exported trained model
 │
@@ -276,6 +277,52 @@ git push → GitHub Actions
 ```
 Streamlit UI  →  http://EC2_PUBLIC_IP:8501
 FastAPI Docs  →  http://EC2_PUBLIC_IP:8000/docs
+```
+
+### Docker — How Both Apps Run Together
+
+The container runs **both Streamlit and FastAPI** using a startup script:
+
+```bash
+# app/start.sh
+#!/bin/bash
+uvicorn api:app --host 0.0.0.0 --port 8000 &
+streamlit run app.py --server.address 0.0.0.0 --server.port 8501
+```
+
+```dockerfile
+# app/Dockerfile
+FROM python:3.10-slim
+WORKDIR /app
+COPY . .
+RUN pip install --no-cache-dir -r requirements.txt
+RUN chmod +x start.sh
+EXPOSE 8501
+EXPOSE 8000
+CMD ["./start.sh"]
+```
+
+### Docker — How Both Apps Run Together
+
+The container runs **both Streamlit and FastAPI** using a startup script:
+
+```bash
+# app/start.sh
+#!/bin/bash
+uvicorn api:app --host 0.0.0.0 --port 8000 &
+streamlit run app.py --server.address 0.0.0.0 --server.port 8501
+```
+
+```dockerfile
+# app/Dockerfile
+FROM python:3.10-slim
+WORKDIR /app
+COPY . .
+RUN pip install --no-cache-dir -r requirements.txt
+RUN chmod +x start.sh
+EXPOSE 8501
+EXPOSE 8000
+CMD ["./start.sh"]
 ```
 
 ### Manual Deployment Steps
