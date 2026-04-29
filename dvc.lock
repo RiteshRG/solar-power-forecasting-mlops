@@ -32,8 +32,8 @@ stages:
     outs:
     - path: app/model/model.pkl
       hash: md5
-      md5: 68208646d122f31c41fff03f340f8dbf
-      size: 142729
+      md5: 56d0955b67e365ebafbe5a6af80284e6
+      size: 136537
   preprocess:
     cmd: python src/preprocess.py
     deps:

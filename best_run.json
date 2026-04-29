@@ -1,0 +1,7 @@
+{
+  "run_id": "ca343ae5fd284d54bbd9533f5af7f5d1",
+  "model": "LinearRegression",
+  "test_r2": 0.9946,
+  "rmse": 608.99,
+  "mae": 471.7
+}
