@@ -16,8 +16,8 @@ stages:
     deps:
     - path: src/register.py
       hash: md5
-      md5: dfad6b15083f14716d9ea4b39e6e8298
-      size: 1876
+      md5: 52080f7e5b1f643a945e423186b4ac3f
+      size: 3403
   export_model:
     cmd: python src/export_model.py
     deps:
@@ -27,8 +27,8 @@ stages:
       size: 764
     - path: src/register.py
       hash: md5
-      md5: dfad6b15083f14716d9ea4b39e6e8298
-      size: 1876
+      md5: 52080f7e5b1f643a945e423186b4ac3f
+      size: 3403
     outs:
     - path: app/model/model.pkl
       hash: md5
