@@ -261,7 +261,7 @@ git push → GitHub Actions
 
 ---
 
-## ☁️ AWS Deployment
+##  AWS Deployment
 
 ### Services Used
 
@@ -377,10 +377,10 @@ Filter logs in CloudWatch console using `[PREDICTION]` to see only predictions.
 
 ---
 
-## 📄 License
+##  License
 
 This project is for academic/MSc purposes.
 
 ---
 
-<p align="center">Built with ☀️ for MSc AI — Solar Power MLOps Project</p>
+<p align="center">Built with  for MSc AI — Solar Power MLOps Project</p>
