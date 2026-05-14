@@ -1,4 +1,4 @@
-# ☀️ Solar Power Generation Forecasting — MLOps Pipeline
+#  Solar Power Generation Forecasting — MLOps Pipeline
 
 ![Python](https://img.shields.io/badge/Python-3.10-blue)
 ![MLflow](https://img.shields.io/badge/MLflow-2.11-orange)
@@ -13,7 +13,7 @@ An end-to-end MLOps pipeline for predicting solar power (AC output) from a photo
 
 ---
 
-## 📋 Table of Contents
+##  Table of Contents
 
 - [Project Overview](#-project-overview)
 - [Architecture](#-architecture)
@@ -28,7 +28,7 @@ An end-to-end MLOps pipeline for predicting solar power (AC output) from a photo
 
 ---
 
-## 🔭 Project Overview
+##  Project Overview
 
 This project forecasts AC power output from a 5MW solar plant using machine learning. It is built with production MLOps practices:
 
@@ -42,7 +42,7 @@ This project forecasts AC power output from a 5MW solar plant using machine lear
 
 ---
 
-## 🏗️ Architecture
+##  Architecture
 
 ```
 Local Development
@@ -71,7 +71,7 @@ Local Development
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 | Category | Tool | Version |
 |---|---|---|
@@ -89,7 +89,7 @@ Local Development
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 Solar_Power_Generation_Forecasting/
@@ -132,7 +132,7 @@ Solar_Power_Generation_Forecasting/
 
 ---
 
-## 🚀 Getting Started (Local)
+##  Getting Started (Local)
 
 ### Prerequisites
 
@@ -195,7 +195,7 @@ Open: `http://localhost:8000/docs`
 
 ---
 
-## ⚡ FastAPI — REST Endpoints
+##  FastAPI — REST Endpoints
 
 | Method | Endpoint | Description |
 |---|---|---|
@@ -233,7 +233,7 @@ curl -X POST http://localhost:8000/predict \
 
 ---
 
-## 🔄 CI/CD Pipeline
+##  CI/CD Pipeline
 
 Every `git push` to `main` triggers the full pipeline automatically:
 
@@ -261,7 +261,7 @@ git push → GitHub Actions
 
 ---
 
-## ☁️ AWS Deployment
+##  AWS Deployment
 
 ### Services Used
 
@@ -346,7 +346,7 @@ docker run -d -p 8000:8000 -p 8501:8501 \
 
 ---
 
-## 📊 CloudWatch Monitoring
+##  CloudWatch Monitoring
 
 Prediction logs are streamed to AWS CloudWatch automatically:
 
@@ -366,7 +366,7 @@ Filter logs in CloudWatch console using `[PREDICTION]` to see only predictions.
 
 ---
 
-## 🔐 Environment Variables
+##  Environment Variables
 
 | Variable | Required | Description |
 |---|---|---|
@@ -377,10 +377,10 @@ Filter logs in CloudWatch console using `[PREDICTION]` to see only predictions.
 
 ---
 
-## 📄 License
+##  License
 
 This project is for academic/MSc purposes.
 
 ---
 
-<p align="center">Built with ☀️ for MSc AI — Solar Power MLOps Project</p>
+<p align="center">Built with  for MSc AI — Solar Power MLOps Project</p>
